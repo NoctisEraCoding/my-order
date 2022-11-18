@@ -13,16 +13,19 @@ use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
+    public static function productList(): \Illuminate\Database\Eloquent\Collection
+    {
+        return Product::all();
+    }
+
+    /**
+     * Controller Products for Dashboard
+     */
     public function adminProductList(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $products = $this->productList();
 
         return view('admin.products.productsList')->with('products', $products);
-    }
-
-    public static function productList(): \Illuminate\Database\Eloquent\Collection
-    {
-        return Product::all();
     }
 
     public function adminCreateProduct(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application

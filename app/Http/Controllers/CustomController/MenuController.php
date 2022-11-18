@@ -13,16 +13,19 @@ use Illuminate\Validation\Rule;
 
 class MenuController extends Controller
 {
+    public static function menuList(): \Illuminate\Database\Eloquent\Collection
+    {
+        return Menu::all();
+    }
+
+    /**
+     * Controller Menus for Dashboard
+     */
     public function adminMenuList(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $menus = $this->menuList();
 
         return view('admin.menus.menusList')->with('menus', $menus);
-    }
-
-    public static function menuList(): \Illuminate\Database\Eloquent\Collection
-    {
-        return Menu::all();
     }
 
     public function adminCreateMenu(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application

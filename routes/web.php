@@ -49,6 +49,14 @@ Route::prefix('admin')->group(function () {
         Route::get('/menus/modify/{menu}', ['App\Http\Controllers\CustomController\MenuController', 'adminModifyMenu'])->name('admin.modifyMenu');
         Route::post('/menus/modify/{menu}', ['App\Http\Controllers\CustomController\MenuController', 'adminSaveModifyMenu'])->name('admin.saveModifyMenu');
         Route::get('/menus/delete/{menu?}', ['App\Http\Controllers\CustomController\MenuController', 'adminDeleteMenu'])->name('admin.deleteMenu');
+
+        /*Courier Controller Backend*/
+        Route::get('/couriers', ['App\Http\Controllers\CustomController\CourierController', 'adminCourierList'])->name('admin.courierList');
+        Route::get('/couriers/create', ['App\Http\Controllers\CustomController\CourierController', 'adminCreateCourier'])->name('admin.createCourier');
+        Route::post('/couriers/create', ['App\Http\Controllers\CustomController\CourierController', 'adminSaveCreateCourier'])->name('admin.saveCreateCourier');
+        Route::get('/couriers/modify/{courier}', ['App\Http\Controllers\CustomController\CourierController', 'adminModifyCourier'])->name('admin.modifyCourier');
+        Route::post('/couriers/modify/{courier}', ['App\Http\Controllers\CustomController\CourierController', 'adminSaveModifyCourier'])->name('admin.saveModifyCourier');
+        Route::get('/couriers/delete/{courier?}', ['App\Http\Controllers\CustomController\CourierController', 'adminDeleteCourier'])->name('admin.deleteCourier');
     });
 });
 
