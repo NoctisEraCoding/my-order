@@ -213,6 +213,13 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link " href="{{route('admin.categoryList')}}">
+                <i class="bx bxs-category"></i>
+                <span>Categories</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link " href="{{route('admin.productList')}}">
                 <i class="bi bi-menu-button-wide"></i>
                 <span>Products</span>

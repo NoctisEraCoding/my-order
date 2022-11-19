@@ -23,6 +23,7 @@
                                     <th scope="col">Description</th>
                                     <th scope="col">Prize</th>
                                     <th scope="col">Cover</th>
+                                    <th scope="col">Category</th>
                                     <th scope="col">Hidden</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -35,6 +36,7 @@
                                             <td>{{$product->description}}</td>
                                             <td>{{$product->prize}}</td>
                                             <td><img src="{{asset($product->cover)}}" width="75" height="75"></td>
+                                            <td>@if(isset($product->category->name)) {{$product->category->name}} @endif</td>
                                             <td>{{$product->hidden?"true":"false"}}</td>
                                             <td>
                                                 <div>

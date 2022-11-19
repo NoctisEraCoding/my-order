@@ -34,6 +34,14 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', ['App\Http\Controllers\Admin\DashboardController', 'getDashboard'])->name('admin.dashboard');
         Route::post('/notification/read', ['App\Http\Controllers\Admin\NotificationController', 'postReadNotification'])->name('admin.postReadNotification');
 
+        /*Category Controllers Backend*/
+        Route::get('/categories', ['App\Http\Controllers\CustomController\CategoryController', 'adminCategoryList'])->name('admin.categoryList');
+        Route::get('/categories/create', ['App\Http\Controllers\CustomController\CategoryController', 'adminCreateCategory'])->name('admin.createCategory');
+        Route::post('/categories/create', ['App\Http\Controllers\CustomController\CategoryController', 'adminSaveCreateCategory'])->name('admin.saveCreateCategory');
+        Route::get('/categories/modify/{category}', ['App\Http\Controllers\CustomController\CategoryController', 'adminModifyCategory'])->name('admin.modifyCategory');
+        Route::post('/categories/modify/{category}', ['App\Http\Controllers\CustomController\CategoryController', 'adminSaveModifyCategory'])->name('admin.saveModifyCategory');
+        Route::get('/categories/delete/{category?}', ['App\Http\Controllers\CustomController\CategoryController', 'adminDeleteCategory'])->name('admin.deleteCategory');
+
         /*Product Controllers Backend*/
         Route::get('/products', ['App\Http\Controllers\CustomController\ProductController', 'adminProductList'])->name('admin.productList');
         Route::get('/products/create', ['App\Http\Controllers\CustomController\ProductController', 'adminCreateProduct'])->name('admin.createProduct');

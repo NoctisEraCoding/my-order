@@ -32,9 +32,11 @@ class ProductController extends Controller
     {
         $allergens = Allergen::all();
         $ingredients = Ingredient::all();
+        $categories = CategoryController::categoryList();
         return view('admin.products.createProduct')
             ->with('allergens', $allergens)
-            ->with('ingredients', $ingredients);
+            ->with('ingredients', $ingredients)
+            ->with('categories', $categories);
     }
 
     public function adminSaveCreateProduct(Request $request): \Illuminate\Http\RedirectResponse
@@ -50,6 +52,7 @@ class ProductController extends Controller
             'ingredients.*' => 'required|string',
             'allergens' => 'array',
             'allergens.*' => 'required|string',
+            'category' => 'required',
             'hidden' => [
                 'required',
                 Rule::in(['true', 'false']),
@@ -64,6 +67,10 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->prize = $request->prize;
+
+        if($request->category != 0) {
+            $product->categoryId = $request->category;
+        }
 
         if($request->has('ingredients')){
             $product->ingredients = $request->ingredients;
@@ -105,10 +112,12 @@ class ProductController extends Controller
     {
         $allergens = Allergen::all();
         $ingredients = Ingredient::all();
+        $categories = CategoryController::categoryList();
         return view('admin.products.modifyProduct')
             ->with('product', $product)
             ->with('allergens', $allergens)
-            ->with('ingredients', $ingredients);
+            ->with('ingredients', $ingredients)
+            ->with('categories', $categories);
     }
 
     public function adminSaveModifyProduct(Request $request, Product $product): \Illuminate\Http\RedirectResponse
@@ -124,6 +133,7 @@ class ProductController extends Controller
             'ingredients.*' => 'required|string',
             'allergens' => 'array',
             'allergens.*' => 'required|string',
+            'category' => 'required',
             'hidden' => [
                 'required',
                 Rule::in(['true', 'false']),
@@ -137,6 +147,13 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->prize = $request->prize;
+
+        if($request->category != 0) {
+            $product->categoryId = $request->category;
+        }
+        else{
+            $product->categoryId = null;
+        }
 
         if($request->has('cover')) {
             $product->cover = $request->cover->storeAs('products/cover', $product->id . '.' . $request->cover->extension(), 'public');

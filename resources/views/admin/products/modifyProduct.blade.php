@@ -82,6 +82,21 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="allergens" class="col-sm-2 col-form-label">Category</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="select example" id="category" name="category">
+                                            <option value="0">--</option>
+                                            @foreach($categories as $category)
+                                                @if($category->id == $product->categoryId)
+                                                    <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                                                @else
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <fieldset class="row mb-3">
                                     <legend class="col-form-label col-sm-2 pt-0">Hidden</legend>
                                     <div class="col-sm-10">

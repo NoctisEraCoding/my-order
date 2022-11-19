@@ -13,10 +13,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $images
  * @property string $ingredients
  * @property string $allergens
+ * @property boolean $hidden
+ * @property integer $categoryId
  * @property string $created_at
  * @property string $updated_at
- * @property MenuProduct[] $menuProducts
  * @property OrderProduct[] $orderProducts
+ * @property Category $category
+ * @property MenuProduct[] $menuProducts
  */
 class Product extends Model
 {
@@ -36,15 +39,7 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'description', 'prize', 'cover', 'images', 'ingredients', 'allergens', 'created_at', 'updated_at'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function menuProducts()
-    {
-        return $this->hasMany('App\Models\MenuProduct', 'productId');
-    }
+    protected $fillable = ['name', 'description', 'prize', 'cover', 'images', 'ingredients', 'allergens', 'hidden', 'categoryId', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -52,5 +47,21 @@ class Product extends Model
     public function orderProducts()
     {
         return $this->hasMany('App\Models\OrderProduct', 'productId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'categoryId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function menuProducts()
+    {
+        return $this->hasMany('App\Models\MenuProduct', 'productId');
     }
 }
