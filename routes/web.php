@@ -65,6 +65,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/couriers/modify/{courier}', ['App\Http\Controllers\CustomController\CourierController', 'adminModifyCourier'])->name('admin.modifyCourier');
         Route::post('/couriers/modify/{courier}', ['App\Http\Controllers\CustomController\CourierController', 'adminSaveModifyCourier'])->name('admin.saveModifyCourier');
         Route::get('/couriers/delete/{courier?}', ['App\Http\Controllers\CustomController\CourierController', 'adminDeleteCourier'])->name('admin.deleteCourier');
+
+        /*User Controllers Backend*/
+        Route::get('/users', ['App\Http\Controllers\CustomController\UserController', 'adminUserList'])->name('admin.userList');
+        Route::get('/users/modify/{user}', ['App\Http\Controllers\CustomController\UserController', 'adminModifyUser'])->name('admin.modifyUser');
+        Route::post('/users/modify/{user}', ['App\Http\Controllers\CustomController\UserController', 'adminSaveModifyUser'])->name('admin.saveModifyUser');
     });
 });
 

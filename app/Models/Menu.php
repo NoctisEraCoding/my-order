@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $cover
  * @property string $created_at
  * @property string $updated_at
+ * @property OrderProduct[] $orderProducts
  * @property MenuProduct[] $menuProducts
  */
 class Menu extends Model
@@ -33,6 +34,14 @@ class Menu extends Model
      * @var array
      */
     protected $fillable = ['name', 'description', 'from', 'to', 'prize', 'cover', 'created_at', 'updated_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orderProducts()
+    {
+        return $this->hasMany('App\Models\OrderProduct', 'menuId');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
