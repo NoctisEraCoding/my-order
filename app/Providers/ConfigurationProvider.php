@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Configuration;
+use App\Models\ShopData;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -43,5 +44,12 @@ class ConfigurationProvider extends ServiceProvider
         $pusher["app_id"] = config('configurations.pusher_app_id');
         $pusher["options"]["host"] = "api-".config('configurations.pusher_cluster').".pusher.com";
         Config::set('broadcasting.connections.pusher', $pusher);
+
+        //Cache::forget('shopData');
+        $shopData = Cache::remember('shopData', 33600, function (){
+            return ShopData::first();
+        });
+
+        Config::set('shopData', $shopData);
     }
 }

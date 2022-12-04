@@ -147,6 +147,13 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link " href="{{route('admin.modifyShopData')}}">
+                <i class="ri-list-settings-fill"></i>
+                <span>Shop Data</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link " href="{{route('admin.categoryList')}}">
                 <i class="bx bxs-category"></i>
                 <span>Categories</span>

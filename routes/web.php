@@ -70,6 +70,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/users', ['App\Http\Controllers\CustomController\UserController', 'adminUserList'])->name('admin.userList');
         Route::get('/users/modify/{user}', ['App\Http\Controllers\CustomController\UserController', 'adminModifyUser'])->name('admin.modifyUser');
         Route::post('/users/modify/{user}', ['App\Http\Controllers\CustomController\UserController', 'adminSaveModifyUser'])->name('admin.saveModifyUser');
+
+        /*Shop Data Controllers Backend*/
+        Route::get('/shopData/modify', ['App\Http\Controllers\CustomController\ShopDataController', 'adminModifyShopData'])->name('admin.modifyShopData');
+        Route::post('/shopData/modify', ['App\Http\Controllers\CustomController\ShopDataController', 'adminSaveModifyShopData'])->name('admin.saveModifyShopData');
     });
 });
 
@@ -77,9 +81,7 @@ Route::prefix('admin')->group(function () {
 
 //Routes frontend
 //Route::get('/register', ['App\Http\Controllers\Admin\Auth\AuthController', 'getRegister']);
-Route::get('/', function () {
-    return view('welcome');
-})->name('frontend.homepage');
+Route::get('/', ['App\Http\Controllers\Frontend\HomeController', 'homePage'])->name('frontend.homepage');
 
 Route::get('/login', function (){
    return 'next page login';
