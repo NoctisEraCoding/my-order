@@ -154,6 +154,13 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link " href="{{route('admin.homepageSettingList')}}">
+                <i class="bx bxs-customize"></i>
+                <span>Customize Slider Homepage</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link " href="{{route('admin.categoryList')}}">
                 <i class="bx bxs-category"></i>
                 <span>Categories</span>

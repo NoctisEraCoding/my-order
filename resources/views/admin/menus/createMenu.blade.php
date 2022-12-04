@@ -57,7 +57,7 @@
                                 <div class="row mb-3">
                                     <label for="inputDate" class="col-sm-2 col-form-label">From</label>
                                     <div class="col-sm-4">
-                                        <input type="date" class="form-control" min="{{date('Y-m-d')}}" name="from" id="from">
+                                        <input type="date" class="form-control" name="from" id="from">
                                     </div>
                                     <label for="inputDate" class="col-sm-1 offset-sm-1 col-form-label">To</label>
                                     <div class="col-sm-4">

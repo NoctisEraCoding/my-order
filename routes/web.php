@@ -74,6 +74,11 @@ Route::prefix('admin')->group(function () {
         /*Shop Data Controllers Backend*/
         Route::get('/shopData/modify', ['App\Http\Controllers\CustomController\ShopDataController', 'adminModifyShopData'])->name('admin.modifyShopData');
         Route::post('/shopData/modify', ['App\Http\Controllers\CustomController\ShopDataController', 'adminSaveModifyShopData'])->name('admin.saveModifyShopData');
+
+        /*homepage Setting Controllers Backend*/
+        Route::get('/homepageSetting', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminHomepageSettingList'])->name('admin.homepageSettingList');
+        Route::get('/homepageSetting/modify/{setting}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminModifyHomepageSetting'])->name('admin.modifyHomepageSetting');
+        Route::post('/homepageSetting/modify/{setting}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminSaveModifyHomepageSetting'])->name('admin.saveModifyHomepageSetting');
     });
 });
 
