@@ -79,6 +79,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/homepageSetting', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminHomepageSettingList'])->name('admin.homepageSettingList');
         Route::get('/homepageSetting/modify/{setting}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminModifyHomepageSetting'])->name('admin.modifyHomepageSetting');
         Route::post('/homepageSetting/modify/{setting}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminSaveModifyHomepageSetting'])->name('admin.saveModifyHomepageSetting');
+
+        /*Allergen Controllers Backend*/
+        Route::get('/allergens', ['App\Http\Controllers\CustomController\AllergenController', 'adminAllergenList'])->name('admin.allergenList');
+        Route::get('/allergens/create', ['App\Http\Controllers\CustomController\AllergenController', 'adminCreateAllergen'])->name('admin.createAllergen');
+        Route::post('/allergens/create', ['App\Http\Controllers\CustomController\AllergenController', 'adminSaveCreateAllergen'])->name('admin.saveCreateAllergen');
+        Route::get('/allergens/modify/{allergen}', ['App\Http\Controllers\CustomController\AllergenController', 'adminModifyAllergen'])->name('admin.modifyAllergen');
+        Route::post('/allergens/modify/{allergen}', ['App\Http\Controllers\CustomController\AllergenController', 'adminSaveModifyAllergen'])->name('admin.saveModifyAllergen');
+        Route::get('/allergens/delete/{allergen?}', ['App\Http\Controllers\CustomController\AllergenController', 'adminDeleteAllergen'])->name('admin.deleteAllergen');
+
+        /*Ingredient Controllers Backend*/
+        Route::get('/ingredients', ['App\Http\Controllers\CustomController\IngredientController', 'adminIngredientList'])->name('admin.ingredientList');
+        Route::get('/ingredients/create', ['App\Http\Controllers\CustomController\IngredientController', 'adminCreateIngredient'])->name('admin.createIngredient');
+        Route::post('/ingredients/create', ['App\Http\Controllers\CustomController\IngredientController', 'adminSaveCreateIngredient'])->name('admin.saveCreateIngredient');
+        Route::get('/ingredients/modify/{ingredient}', ['App\Http\Controllers\CustomController\IngredientController', 'adminModifyIngredient'])->name('admin.modifyIngredient');
+        Route::post('/ingredients/modify/{ingredient}', ['App\Http\Controllers\CustomController\IngredientController', 'adminSaveModifyIngredient'])->name('admin.saveModifyIngredient');
+        Route::get('/ingredients/delete/{ingredient?}', ['App\Http\Controllers\CustomController\IngredientController', 'adminDeleteIngredient'])->name('admin.deleteIngredient');
     });
 });
 

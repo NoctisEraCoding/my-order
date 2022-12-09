@@ -22,6 +22,10 @@ class CreateConfigurationsTable extends Migration
             $table->string('stripePublic')->nullable();
             $table->integer('versionSite')->default(1);
             $table->string('versionSiteText')->nullable();
+            $table->string('pusher_app_key')->nullable();
+            $table->string('pusher_app_secret')->nullable();
+            $table->string('pusher_app_id')->nullable();
+            $table->string('pusher_cluster')->nullable();
             $table->timestamps();
         });
     }

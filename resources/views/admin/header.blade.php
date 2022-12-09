@@ -161,6 +161,20 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link " href="{{route('admin.ingredientList')}}">
+                <i class="bx bxs-dish"></i>
+                <span>Ingredients</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link " href="{{route('admin.allergenList')}}">
+                <i class="bx bxs-dizzy"></i>
+                <span>Allergens</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link " href="{{route('admin.categoryList')}}">
                 <i class="bx bxs-category"></i>
                 <span>Categories</span>

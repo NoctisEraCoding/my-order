@@ -59,7 +59,7 @@
                                     <div class="col-sm-10">
                                         <select class="form-select" multiple aria-label="multiple select example" id="ingredients" name="ingredients[]">
                                             @foreach($ingredients as $ingredient)
-                                                @if(in_array($ingredient->id,$product->ingredients))
+                                                @if(!is_null($product->ingredients) && in_array($ingredient->id,$product->ingredients))
                                                     <option value="{{$ingredient->id}}" selected>{{$ingredient->ingredient}}</option>
                                                 @else
                                                     <option value="{{$ingredient->id}}">{{$ingredient->ingredient}}</option>
@@ -73,7 +73,7 @@
                                     <div class="col-sm-10">
                                         <select class="form-select" multiple aria-label="multiple select example" id="allergens" name="allergens[]">
                                             @foreach($allergens as $allergen)
-                                                @if(in_array($allergen->id,$product->allergens))
+                                                @if(!is_null($product->allergens) && in_array($allergen->id,$product->allergens))
                                                     <option value="{{$allergen->id}}" selected>{{$allergen->allergen}}</option>
                                                 @else
                                                     <option value="{{$allergen->id}}">{{$allergen->allergen}}</option>
