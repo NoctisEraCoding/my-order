@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\CustomController\CategoryController;
 use App\Http\Controllers\CustomController\HomepageSettingController;
 use App\Http\Controllers\CustomController\ProductController;
+use App\Models\AboutpageSetting;
 use App\Models\Ingredient;
 use App\Models\Menu;
 use Illuminate\Http\Request;
@@ -21,11 +22,15 @@ class HomeController extends Controller
             ->get();
         $products = ProductController::productList();
         $sliders = HomepageSettingController::homepageSettingList()->where('show', '=', 1);
+        $about = AboutpageSetting::first();
+        $gallery = HomepageSettingController::gallerySettingList()->where('show', '=', 1);
         return view('frontend.home')
             ->with('categories', $categories)
             ->with('ingredients', $ingredients)
             ->with('menus', $menus)
             ->with('products', $products)
-            ->with('sliders', $sliders);
+            ->with('sliders', $sliders)
+            ->with('about', $about)
+            ->with('gallery', $gallery);
     }
 }

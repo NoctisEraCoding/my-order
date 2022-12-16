@@ -75,10 +75,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/shopData/modify', ['App\Http\Controllers\CustomController\ShopDataController', 'adminModifyShopData'])->name('admin.modifyShopData');
         Route::post('/shopData/modify', ['App\Http\Controllers\CustomController\ShopDataController', 'adminSaveModifyShopData'])->name('admin.saveModifyShopData');
 
-        /*homepage Setting Controllers Backend*/
+        /*Homepage, About and Gallery Setting Controllers Backend*/
         Route::get('/homepageSetting', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminHomepageSettingList'])->name('admin.homepageSettingList');
         Route::get('/homepageSetting/modify/{setting}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminModifyHomepageSetting'])->name('admin.modifyHomepageSetting');
         Route::post('/homepageSetting/modify/{setting}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminSaveModifyHomepageSetting'])->name('admin.saveModifyHomepageSetting');
+
+        Route::get('/aboutpageSetting/modify', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminModifyAboutpageSetting'])->name('admin.modifyAboutpageSetting');
+        Route::post('/aboutpageSetting/modify', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminSaveModifyAboutpageSetting'])->name('admin.saveModifyAboutpageSetting');
+
+        Route::get('/gallerySetting/create', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminCreateGallerySetting'])->name('admin.createGallerySetting');
+        Route::post('/gallerySetting/create', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminSaveCreateGallerySetting'])->name('admin.saveCreateGallerySetting');
+        Route::get('/gallerySetting/modify/{gallery}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminModifyGallerySetting'])->name('admin.modifyGallerySetting');
+        Route::post('/gallerySetting/modify/{gallery}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminSaveModifyGallerySetting'])->name('admin.saveModifyGallerySetting');
+        Route::get('/gallerySetting/delete/{gallery?}', ['App\Http\Controllers\CustomController\HomepageSettingController', 'adminDeleteGallerySetting'])->name('admin.deleteGallerySetting');
 
         /*Allergen Controllers Backend*/
         Route::get('/allergens', ['App\Http\Controllers\CustomController\AllergenController', 'adminAllergenList'])->name('admin.allergenList');
