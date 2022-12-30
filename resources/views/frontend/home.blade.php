@@ -3,7 +3,7 @@
 @section('title')
     Homepage - My Order
 @endsection
-
+@section('content')
 <section id="hero">
     <div class="hero-container">
         <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -39,7 +39,7 @@
     </div>
 </section><!-- End Hero -->
 
-@section('content')
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container-fluid">
@@ -92,7 +92,7 @@
                         @endphp
                         <div class="col-lg-6 menu-item filter-{{$category->id}}">
                             <div class="menu-content">
-                                <a href="#">{{$product->name}}</a><span>€{{$product->prize}}</span>
+                                <a href="{{route('frontend.showProduct', [$product->id])}}">{{$product->name}}</a><span>€{{$product->prize}}</span>
                             </div>
                             <div class="menu-ingredients">
                                 @foreach($ingredients->whereIn('id', $product->ingredients) as $ingredient)
@@ -132,7 +132,7 @@
                             <div class="tab-pane @if($key == 0) active show @endif" id="menu-{{$menu->id}}">
                                 <div class="row">
                                     <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>{{$menu->name}}</h3>
+                                        <h3><a href="{{route('frontend.showMenu', [$menu->id])}}">{{$menu->name}}</a></h3>
                                         <h4>{{$menu->prize}} €</h4>
                                         <p class="fst-italic">{{$menu->description}}</p>
                                         @foreach($menu->menuProducts as $menuProduct)

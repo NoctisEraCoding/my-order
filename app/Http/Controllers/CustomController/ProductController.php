@@ -196,4 +196,18 @@ class ProductController extends Controller
 
         return redirect()->route('admin.productList');
     }
+
+    /**
+     * Controller Products for HomePage
+     */
+    public function showProduct(Product $product): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $allergens = Allergen::whereIn('id', $product->allergens)->get();
+        $ingredients = Ingredient::whereIn('id', $product->ingredients)->get();
+
+        return view('frontend.showProduct')
+            ->with('product', $product)
+            ->with('allergens', $allergens)
+            ->with('ingredients', $ingredients);
+    }
 }

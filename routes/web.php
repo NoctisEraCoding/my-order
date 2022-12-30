@@ -113,6 +113,11 @@ Route::prefix('admin')->group(function () {
 //Route::get('/register', ['App\Http\Controllers\Admin\Auth\AuthController', 'getRegister']);
 Route::get('/', ['App\Http\Controllers\Frontend\HomeController', 'homePage'])->name('frontend.homepage');
 
+Route::get('/product/{product}', ['App\Http\Controllers\CustomController\ProductController', 'showProduct'])->name('frontend.showProduct');
+Route::get('/menu/{menu}', ['App\Http\Controllers\CustomController\MenuController', 'showMenu'])->name('frontend.showMenu');
+
 Route::get('/login', function (){
    return 'next page login';
 })->name('login');
+
+//Route::middleware(['auth', 'isAdmin'])->group(function () {});

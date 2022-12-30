@@ -10,22 +10,22 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assetsFront/img/favicon.png" rel="icon">
-    <link href="assetsFront/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="//assetsFront/img/favicon.png" rel="icon">
+    <link href="//assetsFront/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assetsFront/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="assetsFront/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assetsFront/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assetsFront/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assetsFront/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assetsFront/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assetsFront/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/assetsFront/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assetsFront/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assetsFront/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assetsFront/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assetsFront/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assetsFront/css/style.css" rel="stylesheet">
+    <link href="/assetsFront/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Delicious - v4.7.1
@@ -54,15 +54,15 @@
                 <a href="/">{{ucfirst(config('configurations.siteName'))}}</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="assetsFront/img/logo.png" alt="" class="img-fluid"></a>-->
+            <!-- <a href="index.html"><img src="/assetsFront/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-                <li><a class="nav-link scrollto" href="#completemenu">Complete Menu</a></li>
-                <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+                <li><a class="nav-link scrollto" href="/#hero">Home</a></li>
+                <li><a class="nav-link scrollto" href="/#about">About</a></li>
+                <li><a class="nav-link scrollto" href="/#menu">Menu</a></li>
+                <li><a class="nav-link scrollto" href="/#completemenu">Complete Menu</a></li>
+                <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -146,14 +146,14 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="assetsFront/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assetsFront/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assetsFront/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assetsFront/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assetsFront/vendor/php-email-form/validate.js"></script>
+<script src="/assetsFront/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assetsFront/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assetsFront/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assetsFront/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assetsFront/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="assetsFront/js/main.js"></script>
+<script src="/assetsFront/js/main.js"></script>
 
 @yield('scriptPage')
 

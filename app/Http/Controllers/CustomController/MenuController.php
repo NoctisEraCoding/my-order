@@ -156,4 +156,13 @@ class MenuController extends Controller
 
         return redirect()->route('admin.menuList');
     }
+
+    /**
+     * Controller Products for HomePage
+     */
+    public function showMenu(Menu $menu): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('frontend.showMenu')
+            ->with('menu', $menu);
+    }
 }
