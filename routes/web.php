@@ -116,8 +116,11 @@ Route::get('/', ['App\Http\Controllers\Frontend\HomeController', 'homePage'])->n
 Route::get('/product/{product}', ['App\Http\Controllers\CustomController\ProductController', 'showProduct'])->name('frontend.showProduct');
 Route::get('/menu/{menu}', ['App\Http\Controllers\CustomController\MenuController', 'showMenu'])->name('frontend.showMenu');
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/addToCart', ['App\Http\Controllers\CustomController\UserController', 'addToCart'])->name('frontend.addToCart');
+    Route::get('/cart', ['App\Http\Controllers\CustomController\OrderController', 'showCart'])->name('frontend.showCart');
+});
+
 Route::get('/login', function (){
    return 'next page login';
 })->name('login');
-
-//Route::middleware(['auth', 'isAdmin'])->group(function () {});

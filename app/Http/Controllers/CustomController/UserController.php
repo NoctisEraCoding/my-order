@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\CustomController;
 
+use App\Exceptions\PreconditionFailedApi;
 use App\Http\Controllers\Controller;
+use App\Http\HelperApi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -57,5 +59,41 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('admin.userList');
+    }
+
+    public function addToCart(Request $request){
+        $validator = Validator::make($request->all(), [
+            'menu' => 'int',
+            'product' => 'int',
+        ]);
+
+        if ($validator->fails()) {
+            return new PreconditionFailedApi('Invalid Parameter');
+        }
+
+        if($request->has('menu')) {
+            $menu = [];
+
+            if(session()->has('menu')) {
+                $menu = session('menu');
+            }
+            $menu[] = $request->menu;
+
+            session(['menu' => $menu]);
+        }
+
+        if($request->has('product')) {
+            $product = [];
+
+            if(session()->has('product')) {
+                $product = session('product');
+            }
+
+            $product[] = $request->product;
+
+            session(['product' => $product]);
+        }
+
+        return HelperApi::successResponse();
     }
 }

@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="pt-5">
-                            <a href="#book-a-table" class="book-a-table-btn scrollto"><i class="bi bi-cart-plus"></i> Add to order</a>
+                            <button class="btn book-a-table-btn" onclick="addToCart()"><i class="bi bi-cart-plus"></i> Add to order</button>
                         </div>
                     </div>
 
@@ -80,4 +80,49 @@
 
         </div>
     </section><!-- End About Section -->
+
+    <div id="alertSuccess" class="col-lg-2 alert alert-success d-flex align-items-center alert-dismissible fade position-absolute bottom-0 end-0" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+            Product added to cart
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="alertError" class="alert alert-danger d-flex align-items-center alert-dismissible fade position-absolute bottom-0 end-0" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div id="errorMessage">
+            An error occurred, please retry
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endsection
+
+@section('scriptPage')
+    <script>
+        function addToCart(){
+            $.post('{{route("frontend.addToCart")}}',
+                {
+                    product: {{$product->id}},
+                    _token: "{{csrf_token()}}"
+                })
+                .done(function() {
+                    $('#alertSuccess').addClass('show');
+                    setTimeout(function () {
+                        $('#alertSuccess').removeClass('show');
+                    }, 2000);
+                })
+                .fail(function(error) {
+                    let errorMessage = 'An error occurred, please retry';
+                    if(error.status === 401){
+                        errorMessage = 'You need to login before you can add products to your cart';
+                    }
+                    $('#alertError').addClass('show');
+                    $('#errorMessage').text(errorMessage);
+                    setTimeout(function () {
+                        $('#alertError').removeClass('show');
+                    }, 2000);
+                });
+        }
+    </script>
 @endsection
